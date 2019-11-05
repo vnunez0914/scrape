@@ -9,8 +9,9 @@ var app = express();
 
 var router = express.Router();
 
+require("./config/routes")(router);
 app.use(express.static(__dirname + "/public"));
-
+ 
 //connection express handlaebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
