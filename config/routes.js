@@ -76,7 +76,7 @@ module.exports = function(router){
             res.json(data);
         })
     })
-    // route to post new articles
+    // route to post new articles. uses what the user sent in req.body. 
     router.post("/api/notes", function(req, res){
         notesController.save(req.body, function(data){
             res.json(data)
