@@ -2,15 +2,15 @@ var request = require("request")
 var cheerio = require("cheerio")
 
 var scrape = function (cb) {
-    request("https://www.t-nation.com/diet-fat-loss", function(err, res, body){
+    request("https://www.t-nation.com", function(err, res, body){
         var $ = cheerio.load(body);
 
         var articles = [];
         
         $(".articleSearchPage").each(function(i, element){
    
-            var head = $(this).children("<h2>").text().trim();
-            var sum = $(this).children(".teaser").text().trim();
+            var head = $(this).children("h2").text().trim();
+            var sum = $(this).children("p").text().trim();
 
             if(head && sum){
                 // regex cleans up text with white space
